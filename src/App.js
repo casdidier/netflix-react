@@ -1,9 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { FaqsContainer } from './containers/faq';
 import { FooterContainer } from './containers/footer';
 import { JumbotronContainer } from './containers/jumbotron';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Browse, Signin, Signup, Home } from './pages';
 import * as ROUTES from './constants/routes';
 
 export default function App() {
@@ -14,8 +16,14 @@ export default function App() {
         <FaqsContainer />
         <FooterContainer />
       </Route>
-      <Route exact path='/user'>
-        <p>I am user</p>
+      <Route exact path={ROUTES.SIGN_IN}>
+        <Signin />
+      </Route>
+      <Route exact path={ROUTES.SIGN_UP}>
+        <Signup />
+      </Route>
+      <Route exact path={ROUTES.BROWSE}>
+        <Browse />
       </Route>
     </Router>
   );
