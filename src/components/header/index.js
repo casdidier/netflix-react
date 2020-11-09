@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link as ReachRouterLink } from 'react-router-dom';
 import {
@@ -26,8 +25,8 @@ export default function Header({ bg = true, children, ...restProps }) {
       {children}
     </Background>
   ) : (
-      children
-    );
+    children
+  );
 }
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
@@ -43,6 +42,25 @@ Header.Logo = function HeaderLogo({ to, ...restProps }) {
     <ReachRouterLink to={to}>
       <Logo {...restProps} />
     </ReachRouterLink>
+  );
+};
+
+Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
+  const [searchActive, setSearchActive] = useState(false);
+
+  return (
+    <Search {...restProps}>
+      <SearchIcon onClick={() => setSearchActive((searchActive) => !searchActive)} data-testid="search-click">
+        <img src="/images/icons/search.png" alt="Search" />
+      </SearchIcon>
+      <SearchInput
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder="Search films and series"
+        active={searchActive}
+        data-testid="search-input"
+      />
+    </Search>
   );
 };
 
@@ -64,6 +82,10 @@ Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
+};
+
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return <PlayButton {...restProps}>{children}</PlayButton>;
 };
 
 Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
@@ -11,7 +10,6 @@ export const Container = styled.div`
   @media (max-width: 1000px) {
     padding: 70px 30px;
   }
-
 `;
 
 export const Column = styled.div`
@@ -24,6 +22,7 @@ export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 15px;
+
   @media (max-width: 1000px) {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
@@ -52,4 +51,3 @@ export const Break = styled.div`
   flex-basis: 100%;
   height: 0;
 `;
-
