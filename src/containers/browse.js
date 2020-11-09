@@ -4,6 +4,8 @@ import { FirebaseContext } from '../context/firebase';
 import { FooterContainer } from './footer';
 import { SelectProfileContainer } from './profile';
 
+import {Loading} from '../components';
+
 
 export function BrowseContainer({ slides }) {
 
