@@ -1,4 +1,3 @@
-
 export default function selectionFilter({ series, films } = []) {
   return {
     series: [
