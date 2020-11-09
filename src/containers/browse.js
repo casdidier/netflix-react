@@ -24,6 +24,6 @@ export function BrowseContainer({ slides }) {
 
       return profile.displayName ? (
             loading ? (<Loading src={user.photoUrl}></Loading>)
-            : null)
+            : <Loading.ReleaseBody />)
             : <SelectProfileContainer user={user} setProfile={setProfile}/>;
 }
