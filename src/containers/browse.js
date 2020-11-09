@@ -4,7 +4,24 @@ import { FirebaseContext } from '../context/firebase';
 import { FooterContainer } from './footer';
 import { SelectProfileContainer } from './profile';
 
+
 export function BrowseContainer({ slides }) {
 
-      return <SelectProfileContainer />;
+      const {firebase} = useContext(FirebaseContext);
+      const [profile, setProfile] = useState({});
+      const [loading, setLoading] = useState(false);
+      const user = firebase.auth().currentUser || {};
+
+      useEffect(() => {
+            setTimeout(() => {
+                  setLoading(false);
+            }, 3000);
+
+      }, [profile.displayName])
+
+
+      return profile.displayName ? (
+            loading ? (<Loading src={user.photoUrl}></Loading>)
+            : null)
+            : <SelectProfileContainer user={user} setProfile={setProfile}/>;
 }
